@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/midterm-frontend/static/css/main.d1b20654.css",
+    "main.js": "/midterm-frontend/static/js/main.b155b58e.js",
+    "index.html": "/midterm-frontend/index.html",
+    "main.d1b20654.css.map": "/midterm-frontend/static/css/main.d1b20654.css.map",
+    "main.b155b58e.js.map": "/midterm-frontend/static/js/main.b155b58e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1b20654.css",
+    "static/js/main.b155b58e.js"
+  ]
+}
