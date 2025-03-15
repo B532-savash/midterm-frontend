@@ -11,7 +11,7 @@ const TakeQuiz = ({ setIsNavbarHidden }) => {
     const [showScore, setShowScore] = useState(false);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/quizzes')
+        axios.get('https://midterm-backend-latest-32ao.onrender.com/quizzes')
             .then(response => setQuizzes(response.data))
             .catch(error => console.error('Error fetching quizzes:', error));
     }, []);
@@ -100,7 +100,7 @@ const TakeQuiz = ({ setIsNavbarHidden }) => {
         <div className="take-quiz-navigation-container">
             <h2>Question {currentQuestionIndex + 1} of {selectedQuiz.questions.length}</h2>
             <div className="take-question-card">
-                <img src={`http://localhost:8080/questions/${currentQuestion.id}/image`} alt={currentQuestion.description} />
+                <img src={`https://midterm-backend-latest-32ao.onrender.com/questions/${currentQuestion.id}/image`} alt={currentQuestion.description} />
                 <p>{currentQuestion.description}</p>
                 {currentQuestion.choices.map((choice, index) => (
                     <label key={index} className="take-radio-option">

@@ -4,25 +4,24 @@ import './AddQuestions.css';
 
 const AddQuestions = () => {
   const [description, setDescription] = useState('');
-  const [choices, setChoices] = useState(['', '', '']); // Keep choices as an array
+  const [choices, setChoices] = useState(['', '', '']);
   const [answer, setAnswer] = useState('');
   const [image, setImage] = useState(null);
-  const [questionId, setQuestionId] = useState(null); // Store question ID after adding
+  const [questionId, setQuestionId] = useState(null);
   const [message, setMessage] = useState('');
 
-  // Handle form submission for adding a question
+
   const handleAddQuestion = async (e) => {
     e.preventDefault();
 
-    // Prepare data for POST request
     const questionData = {
       description,
-      choices, // Send choices as an array
+      choices,
       answer,
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/questions', questionData);
+      const response = await axios.post('https://midterm-backend-latest-32ao.onrender.com/questions', questionData);
       setQuestionId(response.data); // Save question ID for image upload
       setMessage('Question added successfully! Now upload an image.');
     } catch (error) {
@@ -31,7 +30,7 @@ const AddQuestions = () => {
     }
   };
 
-  // Handle image upload
+
   const handleUploadImage = async (e) => {
     e.preventDefault();
 
@@ -44,7 +43,7 @@ const AddQuestions = () => {
     formData.append('image', image);
 
     try {
-      await axios.post(`http://localhost:8080/questions/${questionId}/image`, formData, {
+      await axios.post(`https://midterm-backend-latest-32ao.onrender.com/questions/${questionId}/image`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

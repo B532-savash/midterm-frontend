@@ -11,7 +11,7 @@ const QuizCreator = () => {
 
     // Fetch questions from backend
     useEffect(() => {
-        axios.get('http://localhost:8080/questions')
+        axios.get('https://midterm-backend-latest-32ao.onrender.com/questions')
             .then(response => {
                 setQuestions(response.data);
             })
@@ -32,7 +32,7 @@ const QuizCreator = () => {
         setSelectedQuestions(selectedQuestions.filter(q => q.id !== questionId));
     };
 
-    // Save quiz changes (POST for new quiz, PUT for existing quiz)
+    // Save quiz changes
     const saveQuizChanges = () => {
         const quizData = {
             title: quizTitle,
@@ -40,7 +40,7 @@ const QuizCreator = () => {
         };
 
         if (isNewQuiz) {
-            axios.post('http://localhost:8080/quizzes', quizData)
+            axios.post('https://midterm-backend-latest-32ao.onrender.com/quizzes', quizData)
                 .then(response => {
                     setQuizId(response.data);
                     setIsNewQuiz(false);
@@ -50,7 +50,7 @@ const QuizCreator = () => {
                     console.error('Error saving quiz:', error);
                 });
         } else {
-            axios.put(`http://localhost:8080/quizzes/${quizId}`, quizData)
+            axios.put(`https://midterm-backend-latest-32ao.onrender.com/quizzes/${quizId}`, quizData)
                 .then(() => {
                     alert('Quiz updated successfully!');
                 })
@@ -60,7 +60,7 @@ const QuizCreator = () => {
         }
     };
 
-    // Save and start a new quiz
+
     const saveAndStartNewQuiz = () => {
         saveQuizChanges();
         setQuizTitle('');
@@ -80,7 +80,7 @@ const QuizCreator = () => {
                     <div className="quiz-creator-questions-grid">
                         {questions.map(question => (
                             <div key={question.id} className="quiz-creator-question-card" onClick={() => addQuestionToQuiz(question)}>
-                                <img src={`http://localhost:8080/questions/${question.id}/image`} alt={question.description} />
+                                <img src={`https://midterm-backend-latest-32ao.onrender.com/questions/${question.id}/image`} alt={question.description} />
                                 <p><strong>{question.id}</strong></p>
                                 <p>{question.description}</p>
                                 {question.choices.map((choice, index) => (
@@ -111,7 +111,7 @@ const QuizCreator = () => {
                     <div className="quiz-creator-selected-questions-grid">
                         {selectedQuestions.map(question => (
                             <div key={question.id} className="quiz-creator-selected-question-card" onClick={() => removeQuestionFromQuiz(question.id)}>
-                                <img src={`http://localhost:8080/questions/${question.id}/image`} alt={question.description} />
+                                <img src={`https://midterm-backend-latest-32ao.onrender.com/questions/${question.id}/image`} alt={question.description} />
                                 <p><strong>{question.id}</strong></p>
                                 <p>{question.description}</p>
                                 {question.choices.map((choice, index) => (
