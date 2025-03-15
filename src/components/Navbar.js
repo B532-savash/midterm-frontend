@@ -1,15 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import './Navbar.css';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <ul className="navbar-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/add-questions">Add Questions</a></li>
-        <li><a href="/create-quiz">Create a Quiz</a></li>
-        <li><a href="/take-quiz">Take a Quiz</a></li>
-        <li><a href="/about">About</a></li>
+        <li>
+          <Link to="/">Home</Link> {/* Use Link instead of <a> */}
+        </li>
+        <li>
+          <Link to="/add-questions">Add Questions</Link>
+        </li>
+        <li>
+          <Link to="/create-quiz">Create a Quiz</Link>
+        </li>
+        <li>
+          <Link to="/take-quiz">Take a Quiz</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
       </ul>
     </nav>
   );
