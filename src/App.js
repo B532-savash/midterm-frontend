@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import QuizCreator from './components/QuizCreator';
+import TakeQuiz from './components/TakeQuiz';
+import Home from './components/Home';
+import About from './components/About';
+import AddQuestions from './components/AddQuestions';
 
 function App() {
+  const [isNavbarHidden, setIsNavbarHidden] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <>
+        <Navbar isHidden={isNavbarHidden} />
+        <Routes>
+          <Route path="/create-quiz" element={<QuizCreator />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/add-questions" element={<AddQuestions />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/take-quiz" element={<TakeQuiz setIsNavbarHidden={setIsNavbarHidden} />} />
+        </Routes>
+      </>
+    </Router>
   );
 }
 
