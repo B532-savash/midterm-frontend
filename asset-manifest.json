@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/midterm-frontend/static/css/main.d1b20654.css",
-    "main.js": "/midterm-frontend/static/js/main.645ff98e.js",
+    "main.js": "/midterm-frontend/static/js/main.bbf8bd1a.js",
     "index.html": "/midterm-frontend/index.html",
     "main.d1b20654.css.map": "/midterm-frontend/static/css/main.d1b20654.css.map",
-    "main.645ff98e.js.map": "/midterm-frontend/static/js/main.645ff98e.js.map"
+    "main.bbf8bd1a.js.map": "/midterm-frontend/static/js/main.bbf8bd1a.js.map"
   },
   "entrypoints": [
     "static/css/main.d1b20654.css",
-    "static/js/main.645ff98e.js"
+    "static/js/main.bbf8bd1a.js"
   ]
 }
